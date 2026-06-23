@@ -1,0 +1,24 @@
+{
+  "project": "YIWULANE website",
+  "handoff_type": "Codex-ready repository brief",
+  "primary_cta": "Start a 3-SKU Pilot",
+  "stack": [
+    "Next.js 16 App Router",
+    "TypeScript",
+    "Tailwind CSS 4"
+  ],
+  "entry_files": [
+    "AGENTS.md",
+    "CODEX_TASK.md",
+    "README.md"
+  ],
+  "docs": [
+    "docs/01_PRODUCT_SPEC.md",
+    "docs/02_CONTENT_BLUEPRINT.md",
+    "docs/03_DESIGN_SYSTEM.md",
+    "docs/04_TECHNICAL_SPEC.md",
+    "docs/05_SEO_ANALYTICS.md",
+    "docs/06_ACCEPTANCE_CRITERIA.md",
+    "docs/07_LAUNCH_CHECKLIST.md"
+  ]
+}

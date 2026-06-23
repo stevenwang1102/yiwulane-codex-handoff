@@ -1,0 +1,15 @@
+.next/
+node_modules/
+out/
+build/
+dist/
+coverage/
+playwright-report/
+test-results/
+qa-screenshots/
+*.tsbuildinfo
+.env
+.env*.local
+*.log
+.DS_Store
+Thumbs.db
