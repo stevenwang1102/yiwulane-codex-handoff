@@ -37,15 +37,17 @@ export function Header() {
         <div className="hidden lg:block">
           <ButtonLink href="/pilot">{site.primaryCta}</ButtonLink>
         </div>
-        <button
-          className="button button-secondary lg:hidden"
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span>{open ? "Close" : "Menu"}</span>
-        </button>
+        <div className="lg:hidden">
+          <button
+            className="button button-secondary"
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span>{open ? "Close" : "Menu"}</span>
+          </button>
+        </div>
       </div>
       {open ? (
         <div id="mobile-menu" className="fixed inset-x-0 top-20 z-50 border-b border-[var(--color-border)] bg-[var(--color-paper)] p-5 shadow-2xl lg:hidden">
