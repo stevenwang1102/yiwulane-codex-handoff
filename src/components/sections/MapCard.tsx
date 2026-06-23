@@ -1,7 +1,7 @@
 import { site } from "@/content/site";
 
-const mapQuery = encodeURIComponent(site.address);
-const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+const { latitude, longitude } = site.mapCoordinates;
+const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 
 export function MapCard() {
   return (
@@ -12,7 +12,7 @@ export function MapCard() {
           <h2 className="h2 mt-3">Find YIWULANE in Yiwu.</h2>
           <p className="lead mt-5">{site.address}</p>
           <a className="button button-secondary mt-7" href={mapLinkUrl} target="_blank" rel="noreferrer">
-            Open in Google Maps
+            Open exact pin in Google Maps
             <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -45,6 +45,9 @@ export function MapCard() {
           <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-[var(--color-border)] bg-white/92 p-5 shadow-[var(--shadow-soft)] backdrop-blur">
             <p className="text-sm font-black uppercase text-[var(--color-route-dark)]">YIWULANE · Yiwu Financial Business District</p>
             <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{site.address}</p>
+            <p className="mt-2 text-xs font-bold text-[var(--color-muted)]">
+              Exact pin: {latitude}, {longitude}
+            </p>
           </div>
         </figure>
       </div>
