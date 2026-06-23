@@ -13,6 +13,7 @@ export function Footer() {
           <p className="mt-5 max-w-md text-sm leading-7 text-white/72">
             YIWULANE helps growing overseas e-commerce sellers source products, control quality, prepare branded packaging, and plan China plus local inventory workflows.
           </p>
+          <p className="mt-4 max-w-md text-xs leading-6 text-white/58">{site.address}</p>
         </div>
         <FooterColumn title="Services" links={site.footerServices} />
         <FooterColumn title="Solutions" links={site.footerSolutions} />

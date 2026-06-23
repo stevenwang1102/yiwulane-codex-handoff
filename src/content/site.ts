@@ -4,6 +4,8 @@ export const site = {
   tagline: "From Yiwu to Your Customers.",
   primaryCta: "Start a 3-SKU Pilot",
   secondaryCta: "See How It Works",
+  address:
+    "Unit 1826, Block A, Liandu Mansion, No.1 Financial Third Street, Financial Business District, Futian Subdistrict, Yiwu City, Jinhua City, Zhejiang Province",
   nav: [
     { label: "Services", href: "/services/product-sourcing" },
     { label: "Solutions", href: "/solutions/shopify-dtc" },
