@@ -4,8 +4,7 @@ export const site = {
   tagline: "From Yiwu to Your Customers.",
   primaryCta: "Start a 3-SKU Pilot",
   secondaryCta: "See How It Works",
-  address:
-    "Unit 1826, Block A, Liandu Mansion, No.1 Financial Third Street, Financial Business District, Futian Subdistrict, Yiwu City, Jinhua City, Zhejiang Province",
+  address: "浙江省金华市义乌市福田街道金融商务区金融三街1号莲都大厦A座1826室",
   mapCoordinates: {
     latitude: 29.3302279,
     longitude: 120.0981103

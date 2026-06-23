@@ -16,7 +16,10 @@ export function MapCard() {
             <span aria-hidden="true">→</span>
           </a>
         </div>
-        <figure className="card relative min-h-[360px] overflow-hidden bg-[var(--color-mist)] md:min-h-[460px]" aria-labelledby="yiwu-map-title">
+        <figure
+          className="card relative min-h-[360px] overflow-hidden bg-[var(--color-mist)] md:min-h-[460px]"
+          aria-labelledby="yiwu-map-title"
+        >
           <figcaption id="yiwu-map-title" className="sr-only">
             Stylized map preview for the YIWULANE office address in Yiwu, Zhejiang Province.
           </figcaption>
@@ -43,7 +46,9 @@ export function MapCard() {
             <circle cx="390" cy="203" r="9" fill="#ffffff" />
           </svg>
           <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-[var(--color-border)] bg-white/92 p-5 shadow-[var(--shadow-soft)] backdrop-blur">
-            <p className="text-sm font-black uppercase text-[var(--color-route-dark)]">YIWULANE · Yiwu Financial Business District</p>
+            <p className="text-sm font-black uppercase text-[var(--color-route-dark)]">
+              YIWULANE · Yiwu Financial Business District
+            </p>
             <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{site.address}</p>
             <p className="mt-2 text-xs font-bold text-[var(--color-muted)]">
               Exact pin: {latitude}, {longitude}
