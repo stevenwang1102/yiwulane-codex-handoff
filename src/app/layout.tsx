@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { getPublicEnv } from "@/lib/env";
 import { absoluteUrl } from "@/lib/site-url";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <WhatsAppButton />
         <CookieConsent ga4Id={env.ga4Id} clarityId={env.clarityId} />
       </body>
     </html>

@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { MapCard } from "@/components/sections/MapCard";
 import { globalFaqs } from "@/content/faqs";
 import { modelSteps, qcChecks, workflowSteps } from "@/content/home";
 import { trustSignals } from "@/content/site";
@@ -239,6 +240,8 @@ export default function Home() {
           <FAQAccordion faqs={globalFaqs} />
         </div>
       </section>
+
+      <MapCard />
 
       <CtaBand />
     </>
