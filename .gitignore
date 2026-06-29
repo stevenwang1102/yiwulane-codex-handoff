@@ -1,5 +1,7 @@
 .next/
 node_modules/
+.venv/
+venv/
 out/
 build/
 dist/
@@ -7,9 +9,16 @@ coverage/
 playwright-report/
 test-results/
 qa-screenshots/
+.cache/
+logs/
 *.tsbuildinfo
 .env
+.env.*
+!.env.example
 .env*.local
+secrets/
+*.secret
+*.pem
 *.log
 .DS_Store
 Thumbs.db
