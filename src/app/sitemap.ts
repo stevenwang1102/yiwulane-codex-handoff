@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { resources } from "@/content/resources";
+import { spanishResources } from "@/content/spanish-resources";
 import { services } from "@/content/services";
 import { solutions } from "@/content/solutions";
 import { getSiteUrl } from "@/lib/site-url";
@@ -8,6 +9,7 @@ const staticRoutes = [
   "",
   "/how-it-works",
   "/es",
+  "/es/recursos",
   "/pilot",
   "/case-studies",
   "/case-studies/representative-home-organization-project",
@@ -26,7 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...services.map((service) => `/services/${service.slug}`),
     ...solutions.map((solution) => `/solutions/${solution.slug}`),
-    ...resources.map((resource) => `/resources/${resource.slug}`)
+    ...resources.map((resource) => `/resources/${resource.slug}`),
+    ...spanishResources.map((resource) => `/es/recursos/${resource.slug}`)
   ];
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

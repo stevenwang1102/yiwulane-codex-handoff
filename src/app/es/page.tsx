@@ -63,6 +63,7 @@ export default function SpanishMarketPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={site.whatsapp.href}>Hablar por WhatsApp</ButtonLink>
               <ButtonLink href="#mercados" variant="secondary">Ver mercados</ButtonLink>
+              <ButtonLink href="/es/recursos" variant="secondary">Leer guias</ButtonLink>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {marketplaceSegments.map((segment) => (
