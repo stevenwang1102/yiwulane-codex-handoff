@@ -7,6 +7,7 @@ import { getSiteUrl } from "@/lib/site-url";
 const staticRoutes = [
   "",
   "/how-it-works",
+  "/es",
   "/pilot",
   "/case-studies",
   "/case-studies/representative-home-organization-project",

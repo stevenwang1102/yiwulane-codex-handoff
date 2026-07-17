@@ -21,7 +21,8 @@ export const site = {
     { label: "Pilot & Pricing", href: "/pilot" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Resources", href: "/resources" },
-    { label: "About", href: "/about" }
+    { label: "About", href: "/about" },
+    { label: "ES", href: "/es" }
   ],
   footerServices: [
     { label: "Product sourcing", href: "/services/product-sourcing" },
