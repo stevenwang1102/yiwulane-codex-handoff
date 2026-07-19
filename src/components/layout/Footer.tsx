@@ -14,6 +14,14 @@ export function Footer() {
             YIWULANE helps growing overseas e-commerce sellers source products, control quality, prepare branded packaging, and plan China plus local inventory workflows.
           </p>
           <p className="mt-4 max-w-md text-xs leading-6 text-white/58">{site.address}</p>
+          <div className="mt-4 grid gap-2 text-sm">
+            <a className="text-white/72 hover:text-white" href={`mailto:${site.emails.general}`}>
+              {site.emails.general}
+            </a>
+            <a className="text-white/72 hover:text-white" href={`mailto:${site.emails.support}`}>
+              {site.emails.support}
+            </a>
+          </div>
         </div>
         <FooterColumn title="Services" links={site.footerServices} />
         <FooterColumn title="Solutions" links={site.footerSolutions} />

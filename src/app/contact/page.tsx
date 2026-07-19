@@ -26,11 +26,27 @@ export default function ContactPage() {
               <p className="font-black text-[var(--color-ink)]">Yiwu office</p>
               <p className="mt-2">{site.address}</p>
             </div>
+            <div className="mt-4 grid gap-3 rounded-2xl bg-white p-5 text-sm">
+              <ContactEmail label="General inquiries" email={site.emails.general} />
+              <ContactEmail label="Sales and quotations" email={site.emails.sales} />
+              <ContactEmail label="Customer support" email={site.emails.support} />
+            </div>
           </div>
           <LeadForm type="contact" />
         </div>
       </section>
       <MapCard />
     </>
+  );
+}
+
+function ContactEmail({ label, email }: { label: string; email: string }) {
+  return (
+    <p>
+      <span className="font-black text-[var(--color-ink)]">{label}: </span>
+      <a className="font-bold text-[var(--color-route-dark)] hover:underline" href={`mailto:${email}`}>
+        {email}
+      </a>
+    </p>
   );
 }

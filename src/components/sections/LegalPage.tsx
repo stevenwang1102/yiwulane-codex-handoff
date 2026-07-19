@@ -1,12 +1,28 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
-export function LegalPage({ title, note }: { title: string; note: string }) {
+export function LegalPage({
+  title,
+  note,
+  contactEmail
+}: {
+  title: string;
+  note: string;
+  contactEmail?: string;
+}) {
   return (
     <section className="section">
       <div className="container reading">
         <Breadcrumbs items={[{ label: title }]} />
         <h1 className="h1">{title}</h1>
         <p className="lead mt-5">{note}</p>
+        {contactEmail ? (
+          <p className="mt-5">
+            Contact:{" "}
+            <a className="font-bold text-[var(--color-route-dark)] hover:underline" href={`mailto:${contactEmail}`}>
+              {contactEmail}
+            </a>
+          </p>
+        ) : null}
         <div className="mt-8 grid gap-5">
           {["Owner details pending", "Business contact details pending", "Jurisdiction and legal language pending"].map((item) => (
             <div className="card p-5" key={item}>

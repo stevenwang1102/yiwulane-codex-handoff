@@ -10,6 +10,13 @@ export const site = {
     display: "+86 134 3069 5812",
     href: "https://wa.me/8613430695812"
   },
+  emails: {
+    general: "hola@yiwulane.com",
+    sales: "ventas@yiwulane.com",
+    operations: "operaciones@yiwulane.com",
+    support: "soporte@yiwulane.com",
+    privacy: "privacy@yiwulane.com"
+  },
   mapCoordinates: {
     latitude: 29.326753,
     longitude: 120.111221
