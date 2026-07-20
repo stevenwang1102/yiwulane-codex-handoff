@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image"
+  },
+  verification: {
+    other: {
+      "p:domain_verify": "15d1c25789ca8245f2c16940c82cdb93"
+    }
   }
 };
 
