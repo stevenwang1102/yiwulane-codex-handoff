@@ -76,6 +76,51 @@ export default function SpanishMarketPage() {
         </div>
       </section>
 
+      <section id="modelo" className="section bg-[var(--color-ink)] text-white">
+        <div className="container grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+          <div>
+            <p className="eyebrow mb-5 text-[var(--color-route)]">Como funciona YIWULANE</p>
+            <h2 className="h2 text-white">Un equipo local para convertir tu idea de producto en una operacion ordenada.</h2>
+            <p className="lead mt-6 text-[var(--color-mist)]">
+              En poco mas de un minuto veras como conectamos busqueda de proveedores, muestras, control de calidad,
+              packaging, consolidacion y logistica internacional.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                "Brief y comparacion de proveedores",
+                "Muestras y especificaciones",
+                "Recepcion, QC y packaging",
+                "Consolidacion y envio"
+              ].map((item, index) => (
+                <div className="flex items-center gap-3 border-t border-white/20 py-3" key={item}>
+                  <span className="font-mono text-sm font-black text-[var(--color-route)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-bold text-white">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href={site.whatsapp.href}>Enviar 3 productos por WhatsApp</ButtonLink>
+              <ButtonLink href="#mercados" variant="secondary">Ver mercados</ButtonLink>
+            </div>
+          </div>
+          <div className="mx-auto w-full max-w-[430px] overflow-hidden rounded-[18px] border border-white/20 bg-black shadow-[0_24px_80px_rgb(0_0_0_/_35%)]">
+            <video
+              aria-label="Video en espanol sobre el modelo operativo de YIWULANE"
+              className="block aspect-[9/16] w-full object-cover"
+              controls
+              playsInline
+              poster="/media/yiwulane-business-model-es-poster.jpg"
+              preload="metadata"
+            >
+              <source src="/media/yiwulane-business-model-es.mp4" type="video/mp4" />
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section className="section bg-white">
         <div className="container">
           <SectionHeader title="Una operacion visible, no solo una lista de proveedores.">
