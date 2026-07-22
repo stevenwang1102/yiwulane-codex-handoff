@@ -66,6 +66,7 @@ export default function SpanishMarketPage() {
               <ButtonLink href={site.whatsapp.href} analyticsEvent="whatsapp_click" analyticsParams={{ placement: "spanish_home_hero" }}>Hablar por WhatsApp</ButtonLink>
               <ButtonLink href={`mailto:${site.emails.sales}`} variant="secondary">Escribir a ventas</ButtonLink>
               <ButtonLink href="#mercados" variant="secondary">Ver mercados</ButtonLink>
+              <ButtonLink href="/es/comparar/agente-de-compras-vs-compra-directa" variant="secondary">Comparar modelos</ButtonLink>
               <ButtonLink href="/es/recursos" variant="secondary">Leer guias</ButtonLink>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">

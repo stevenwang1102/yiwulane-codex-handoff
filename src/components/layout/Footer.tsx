@@ -29,6 +29,7 @@ export function Footer() {
           title="Company"
           links={[
             { label: "How It Works", href: "/how-it-works" },
+            { label: "Sourcing model guide", href: "/compare/yiwu-sourcing-agent-vs-direct-sourcing" },
             { label: "Pilot", href: "/pilot" },
             { label: "Contact", href: "/contact" },
             { label: "Privacy", href: "/privacy" },

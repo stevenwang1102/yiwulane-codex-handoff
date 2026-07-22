@@ -45,6 +45,13 @@ describe("SEO helpers", () => {
         expect.objectContaining({ "@id": "https://www.yiwulane.com/#website" })
       ])
     );
+    expect(schema["@graph"][0]).toMatchObject({
+      knowsAbout: expect.arrayContaining(["Yiwu product sourcing", "quality control", "order consolidation"]),
+      areaServed: expect.arrayContaining([
+        expect.objectContaining({ "@type": "Country", name: "Mexico" }),
+        expect.objectContaining({ "@type": "Country", name: "Spain" })
+      ])
+    });
   });
 
   it("provides reciprocal Spanish market alternates", () => {
@@ -75,6 +82,8 @@ describe("sitemap", () => {
     expect(urls).not.toContain("https://www.yiwulane.com/privacy");
     expect(urls).not.toContain("https://www.yiwulane.com/terms");
     expect(urls).not.toContain("https://www.yiwulane.com/cookie-policy");
+    expect(urls).toContain("https://www.yiwulane.com/compare/yiwu-sourcing-agent-vs-direct-sourcing");
+    expect(urls).toContain("https://www.yiwulane.com/es/comparar/agente-de-compras-vs-compra-directa");
     expect(entries.every((entry) => entry.lastModified === undefined)).toBe(true);
   });
 });

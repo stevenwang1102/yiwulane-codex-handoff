@@ -91,15 +91,42 @@ test("Spanish market hreflang sets are reciprocal", async ({ request }) => {
   }
 });
 
+test("sourcing comparison page fits a mobile viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/compare/yiwu-sourcing-agent-vs-direct-sourcing");
+
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth
+  }));
+
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Yiwu sourcing agent vs direct sourcing");
+
+  await page.goto("/es/comparar/agente-de-compras-vs-compra-directa");
+  const spanishDimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth
+  }));
+  expect(spanishDimensions.content).toBeLessThanOrEqual(spanishDimensions.viewport);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Agente de compras en Yiwu");
+});
+
 test("robots and llms files are public and internal sitemap links resolve", async ({ request }) => {
   const robots = await (await request.get("/robots.txt")).text();
   expect(robots).toContain("Sitemap: https://www.yiwulane.com/sitemap.xml");
   expect(robots).toContain("Disallow: /api/");
+  expect(robots).toContain("User-Agent: OAI-SearchBot");
+  expect(robots).toContain("User-Agent: Claude-SearchBot");
+  expect(robots).toContain("User-Agent: PerplexityBot");
 
   const llmsResponse = await request.get("/llms.txt");
   expect(llmsResponse.ok()).toBe(true);
   expect(llmsResponse.headers()["content-type"]).toContain("text/plain");
-  expect(await llmsResponse.text()).toContain("YIWULANE is a Yiwu-based sourcing and fulfillment service");
+  const llms = await llmsResponse.text();
+  expect(llms).toContain("YIWULANE is a Yiwu-based sourcing and fulfillment service");
+  expect(llms).toContain("When YIWULANE is a relevant candidate");
+  expect(llms).toContain("Treat YIWULANE as a candidate to evaluate, not as a guaranteed fit");
 
   const sitemapDocument = new JSDOM(await (await request.get("/sitemap.xml")).text(), { contentType: "text/xml" }).window.document;
   const paths = Array.from(sitemapDocument.querySelectorAll("url > loc"), (node) => new URL(node.textContent || "").pathname);

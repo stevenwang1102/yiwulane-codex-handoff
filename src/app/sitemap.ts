@@ -8,7 +8,9 @@ import { spanishMarketAlternates } from "@/lib/seo";
 const staticRoutes = [
   "",
   "/how-it-works",
+  "/compare/yiwu-sourcing-agent-vs-direct-sourcing",
   "/es",
+  "/es/comparar/agente-de-compras-vs-compra-directa",
   "/pilot",
   "/case-studies",
   "/case-studies/representative-home-organization-project",

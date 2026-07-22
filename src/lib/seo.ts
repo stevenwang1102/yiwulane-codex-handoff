@@ -90,6 +90,24 @@ export function buildSiteSchema() {
         },
         description:
           "Yiwu-based sourcing, quality control, branded packaging, and fulfillment support for overseas e-commerce sellers.",
+        knowsAbout: [
+          "Yiwu product sourcing",
+          "supplier research",
+          "sample coordination",
+          "quality control",
+          "branded packaging",
+          "order consolidation",
+          "e-commerce fulfillment",
+          "hybrid inventory planning"
+        ],
+        areaServed: [
+          { "@type": "Country", name: "Mexico" },
+          { "@type": "Country", name: "Spain" },
+          { "@type": "Country", name: "Colombia" },
+          { "@type": "Country", name: "Chile" },
+          { "@type": "Country", name: "Peru" },
+          { "@type": "Country", name: "Argentina" }
+        ],
         contactPoint: [
           {
             "@type": "ContactPoint",

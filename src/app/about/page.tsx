@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const description = "Learn how YIWULANE coordinates sourcing, quality control, packaging, consolidation, and fulfillment for overseas e-commerce sellers.";
@@ -36,6 +37,11 @@ export default function AboutPage() {
               <p className="mt-4 leading-7 text-[var(--color-muted)]">{body}</p>
             </article>
           ))}
+        </div>
+        <div className="container mt-8">
+          <ButtonLink href="/compare/yiwu-sourcing-agent-vs-direct-sourcing" variant="secondary">
+            Compare sourcing models
+          </ButtonLink>
         </div>
       </section>
       <CtaBand />
