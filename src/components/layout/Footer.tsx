@@ -37,7 +37,7 @@ export function Footer() {
         />
       </div>
       <div className="container mt-10 flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-xs text-white/58">
-        <p>© {new Date().getFullYear()} YIWULANE. Launch details pending owner approval.</p>
+        <p>© {new Date().getFullYear()} YIWULANE. Yiwu sourcing, QC, packaging, and fulfillment support.</p>
         <p>No customer logos, reviews, certifications, or delivery promises are claimed.</p>
       </div>
     </footer>

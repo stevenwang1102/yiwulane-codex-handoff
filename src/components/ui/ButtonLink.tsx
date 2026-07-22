@@ -1,16 +1,21 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import type { AnalyticsEvent, AnalyticsParams } from "@/lib/analytics";
 
 type Variant = "primary" | "secondary" | "dark";
 
 export function ButtonLink({
   href,
   children,
-  variant = "primary"
+  variant = "primary",
+  analyticsEvent,
+  analyticsParams
 }: {
   href: string;
   children: ReactNode;
   variant?: Variant;
+  analyticsEvent?: AnalyticsEvent;
+  analyticsParams?: AnalyticsParams;
 }) {
   const className =
     variant === "secondary"
@@ -20,9 +25,14 @@ export function ButtonLink({
         : "button button-primary";
 
   return (
-    <Link href={href} className={className}>
+    <TrackedLink
+      href={href}
+      className={className}
+      analyticsEvent={analyticsEvent}
+      analyticsParams={analyticsParams}
+    >
       {children}
       <span aria-hidden="true">→</span>
-    </Link>
+    </TrackedLink>
   );
 }

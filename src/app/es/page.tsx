@@ -2,26 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
 import { spanishMarkets, spanishServices } from "@/content/spanish-markets";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema, spanishMarketAlternates } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description = "YIWULANE ayuda a vendedores online en Mexico, Espana, Colombia, Chile, Peru y Argentina con proveedores en Yiwu, control de calidad, packaging y fulfillment desde China.";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Sourcing en Yiwu para vendedores online en Mexico, Espana y Latinoamerica",
-  description:
-    "YIWULANE ayuda a vendedores online en Mexico, Espana, Colombia, Chile, Peru y Argentina con proveedores en Yiwu, control de calidad, packaging y fulfillment desde China.",
-  alternates: {
-    canonical: absoluteUrl("/es")
-  },
-  openGraph: {
-    title: "Sourcing en Yiwu para vendedores online en espanol",
-    description:
-      "Proveedores en China, control de calidad y fulfillment para vendedores de Mercado Libre, Shopify, TikTok Shop y Amazon.",
-    url: absoluteUrl("/es"),
-    siteName: "YIWULANE",
-    type: "website"
-  }
-};
+  description,
+  path: "/es",
+  locale: "es_ES",
+  languages: spanishMarketAlternates
+});
 
 const marketplaceSegments = [
   "Vendedores de Mercado Libre",
@@ -51,6 +45,14 @@ const processSteps = [
 export default function SpanishMarketPage() {
   return (
     <>
+      <JsonLd
+        data={buildWebPageSchema({
+          name: "Sourcing en Yiwu para vendedores online en espanol",
+          description,
+          path: "/es",
+          language: "es"
+        })}
+      />
       <section className="section bg-[linear-gradient(180deg,#fcfbf8_0%,#e8eef5_100%)]">
         <div className="container grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div>
@@ -61,7 +63,7 @@ export default function SpanishMarketPage() {
               busqueda de proveedores, muestras, inspeccion, packaging, consolidacion y envio internacional.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={site.whatsapp.href}>Hablar por WhatsApp</ButtonLink>
+              <ButtonLink href={site.whatsapp.href} analyticsEvent="whatsapp_click" analyticsParams={{ placement: "spanish_home_hero" }}>Hablar por WhatsApp</ButtonLink>
               <ButtonLink href={`mailto:${site.emails.sales}`} variant="secondary">Escribir a ventas</ButtonLink>
               <ButtonLink href="#mercados" variant="secondary">Ver mercados</ButtonLink>
               <ButtonLink href="/es/recursos" variant="secondary">Leer guias</ButtonLink>
@@ -101,7 +103,7 @@ export default function SpanishMarketPage() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={site.whatsapp.href}>Enviar 3 productos por WhatsApp</ButtonLink>
+              <ButtonLink href={site.whatsapp.href} analyticsEvent="whatsapp_click" analyticsParams={{ placement: "spanish_home_model" }}>Enviar 3 productos por WhatsApp</ButtonLink>
               <ButtonLink href="#mercados" variant="secondary">Ver mercados</ButtonLink>
             </div>
           </div>
@@ -178,6 +180,9 @@ export default function SpanishMarketPage() {
                     <span className="chip" key={keyword}>{keyword}</span>
                   ))}
                 </div>
+                <Link className="mt-6 inline-flex font-black text-[var(--color-route-dark)]" href={`/es/${market.path}`}>
+                  Ver guia para {market.label} →
+                </Link>
               </article>
             ))}
           </div>
@@ -227,7 +232,7 @@ export default function SpanishMarketPage() {
               <li>+ Si necesitas packaging, etiquetas o consolidacion</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={site.whatsapp.href}>Cotizar por WhatsApp</ButtonLink>
+              <ButtonLink href={site.whatsapp.href} analyticsEvent="whatsapp_click" analyticsParams={{ placement: "spanish_home_footer" }}>Cotizar por WhatsApp</ButtonLink>
               <ButtonLink href={`mailto:${site.emails.sales}`} variant="secondary">Enviar email</ButtonLink>
               <Link className="button button-secondary" href="/contact">Formulario en ingles</Link>
             </div>

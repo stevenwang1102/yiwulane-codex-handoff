@@ -6,13 +6,23 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { MapCard } from "@/components/sections/MapCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { globalFaqs } from "@/content/faqs";
 import { modelSteps, qcChecks, workflowSteps } from "@/content/home";
 import { trustSignals } from "@/content/site";
+import { buildWebPageSchema } from "@/lib/seo";
 
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={buildWebPageSchema({
+          name: "YIWULANE | Yiwu Sourcing, QC & E-commerce Fulfillment",
+          description:
+            "Yiwu-based product sourcing, quality control, branded packaging, and fulfillment support for overseas e-commerce sellers.",
+          path: "/"
+        })}
+      />
       <section className="section bg-[linear-gradient(180deg,#fcfbf8_0%,#f3eee5_100%)]">
         <div className="container grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div>
@@ -230,7 +240,9 @@ export default function Home() {
           <h2 className="h2">20 years in global trade. Now built for modern e-commerce.</h2>
           <p className="lead mt-5">For two decades, our work has centered on sourcing products, communicating with suppliers, following production, controlling export quality, and solving the practical problems between an overseas buyer and a China supply base.</p>
           <p className="lead mt-5">YIWULANE brings that experience to independent e-commerce sellers through lower-MOQ sourcing, visible quality control, brand-ready packaging, and flexible fulfillment.</p>
-          <p className="mt-5 rounded-xl bg-[var(--color-mist)] p-4 text-sm font-bold text-[var(--color-navy)]">Founder name and authentic photograph will be added after owner approval.</p>
+          <p className="mt-5 rounded-xl bg-[var(--color-mist)] p-4 text-sm font-bold text-[var(--color-navy)]">
+            To begin, send up to three product links or photos together with the destination market, selling platform, expected quantity, target price, and packaging requirements.
+          </p>
         </div>
       </section>
 

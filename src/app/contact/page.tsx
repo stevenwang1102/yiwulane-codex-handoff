@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { MapCard } from "@/components/sections/MapCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { site } from "@/content/site";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Send YIWULANE a sourcing, fulfillment, partnership, or general inquiry.",
-  alternates: { canonical: absoluteUrl("/contact") }
-};
+const description = "Contact YIWULANE about product sourcing, quality control, packaging, fulfillment, or a general partnership inquiry.";
+
+export const metadata: Metadata = buildPageMetadata({ title: "Contact YIWULANE", description, path: "/contact" });
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={buildWebPageSchema({ name: "Contact YIWULANE", description, path: "/contact" })} />
       <section className="section">
         <div className="container grid gap-10 lg:grid-cols-[0.75fr_1fr]">
           <div>

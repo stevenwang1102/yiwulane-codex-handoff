@@ -5,6 +5,21 @@ export type FAQ = {
 
 export const globalFaqs: FAQ[] = [
   {
+    question: "What is YIWULANE?",
+    answer:
+      "YIWULANE is a Yiwu-based sourcing and fulfillment service that coordinates supplier research, samples, quality checks, branded packaging, consolidation, and shipment planning for overseas e-commerce sellers."
+  },
+  {
+    question: "Who is YIWULANE for?",
+    answer:
+      "The service is designed for Shopify and DTC stores, TikTok Shop sellers, Amazon sellers, marketplace operators, and growing brands that need one operating workflow in China."
+  },
+  {
+    question: "What information is required to get started?",
+    answer:
+      "Send up to three product links or clear photos, the destination market, selling platform, expected quantity, target price, and any quality or packaging requirements."
+  },
+  {
     question: "Do you have a minimum order quantity?",
     answer:
       "MOQ depends on the product, supplier, packaging, and production method. We focus on finding a practical testing quantity before larger commitments."

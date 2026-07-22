@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getSpanishResource, spanishResources } from "@/content/spanish-resources";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return spanishResources.map((resource) => ({ slug: resource.slug }));
@@ -13,18 +13,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const resource = getSpanishResource(slug);
   if (!resource) return {};
-  return {
+  return buildPageMetadata({
     title: resource.title,
     description: resource.description,
-    alternates: { canonical: absoluteUrl(`/es/recursos/${resource.slug}`) },
-    openGraph: {
-      title: resource.title,
-      description: resource.description,
-      url: absoluteUrl(`/es/recursos/${resource.slug}`),
-      siteName: "YIWULANE",
-      type: "article"
-    }
-  };
+    path: `/es/recursos/${resource.slug}`,
+    index: false,
+    locale: "es_ES"
+  });
 }
 
 export default async function SpanishResourcePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -37,6 +32,7 @@ export default async function SpanishResourcePage({ params }: { params: Promise<
       <article className="section">
         <div className="container reading">
           <Breadcrumbs
+            homeLabel="Inicio"
             items={[
               { label: "Espanol", href: "/es" },
               { label: "Recursos", href: "/es/recursos" },

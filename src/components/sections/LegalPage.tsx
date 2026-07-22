@@ -3,11 +3,13 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 export function LegalPage({
   title,
   note,
-  contactEmail
+  contactEmail,
+  sections
 }: {
   title: string;
   note: string;
   contactEmail?: string;
+  sections: { title: string; body: string }[];
 }) {
   return (
     <section className="section">
@@ -24,10 +26,10 @@ export function LegalPage({
           </p>
         ) : null}
         <div className="mt-8 grid gap-5">
-          {["Owner details pending", "Business contact details pending", "Jurisdiction and legal language pending"].map((item) => (
-            <div className="card p-5" key={item}>
-              <h2 className="text-xl font-black text-[var(--color-ink)]">{item}</h2>
-              <p className="mt-3 leading-7 text-[var(--color-muted)]">Final language should be supplied or approved before production launch.</p>
+          {sections.map((section) => (
+            <div className="card p-5" key={section.title}>
+              <h2 className="text-xl font-black text-[var(--color-ink)]">{section.title}</h2>
+              <p className="mt-3 leading-7 text-[var(--color-muted)]">{section.body}</p>
             </div>
           ))}
         </div>

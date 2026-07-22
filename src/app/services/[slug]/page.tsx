@@ -4,8 +4,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getService, services } from "@/content/services";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildServiceSchema, buildWebPageSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -15,11 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
-  return {
+  return buildPageMetadata({
     title: service.metaTitle,
     description: service.description,
-    alternates: { canonical: absoluteUrl(`/services/${service.slug}`) }
-  };
+    path: `/services/${service.slug}`
+  });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,6 +30,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <JsonLd data={buildWebPageSchema({ name: service.title, description: service.description, path: `/services/${service.slug}` })} />
+      <JsonLd data={buildServiceSchema({ name: service.title, description: service.description, path: `/services/${service.slug}` })} />
       <section className="section">
         <div className="container">
           <Breadcrumbs items={[{ label: "Services" }, { label: service.title }]} />

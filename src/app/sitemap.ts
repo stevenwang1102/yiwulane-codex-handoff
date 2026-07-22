@@ -1,25 +1,20 @@
 import type { MetadataRoute } from "next";
-import { resources } from "@/content/resources";
-import { spanishResources } from "@/content/spanish-resources";
 import { services } from "@/content/services";
 import { solutions } from "@/content/solutions";
+import { spanishMarkets } from "@/content/spanish-markets";
 import { getSiteUrl } from "@/lib/site-url";
+import { spanishMarketAlternates } from "@/lib/seo";
 
 const staticRoutes = [
   "",
   "/how-it-works",
   "/es",
-  "/es/recursos",
   "/pilot",
   "/case-studies",
   "/case-studies/representative-home-organization-project",
-  "/resources",
   "/about",
   "/contact",
-  "/quote",
-  "/privacy",
-  "/cookie-policy",
-  "/terms"
+  "/quote"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,13 +23,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...services.map((service) => `/services/${service.slug}`),
     ...solutions.map((solution) => `/solutions/${solution.slug}`),
-    ...resources.map((resource) => `/resources/${resource.slug}`),
-    ...spanishResources.map((resource) => `/es/recursos/${resource.slug}`)
+    ...spanishMarkets.map((market) => `/es/${market.path}`)
   ];
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.7
+    priority: route === "" ? 1 : 0.7,
+    ...(route === "/es" || route.startsWith("/es/")
+      ? {
+          alternates: {
+            languages: Object.fromEntries(
+              Object.entries(spanishMarketAlternates).map(([language, path]) => [language, `${siteUrl}${path}`])
+            )
+          }
+        }
+      : {})
   }));
 }

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { resources } from "@/content/resources";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Resources",
-  description: "Draft sourcing, QC, fulfillment, and landed-cost resources for e-commerce sellers.",
-  alternates: { canonical: absoluteUrl("/resources") }
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Sourcing and Fulfillment Resources",
+  description: "Editorial-stage sourcing, QC, fulfillment, and landed-cost resources for e-commerce sellers.",
+  path: "/resources",
+  index: false
+});
 
 export default function ResourcesPage() {
   return (

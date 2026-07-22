@@ -4,8 +4,9 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getSolution, solutions } from "@/content/solutions";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildServiceSchema, buildWebPageSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return solutions.map((solution) => ({ slug: solution.slug }));
@@ -15,11 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const solution = getSolution(slug);
   if (!solution) return {};
-  return {
+  return buildPageMetadata({
     title: solution.title,
     description: solution.description,
-    alternates: { canonical: absoluteUrl(`/solutions/${solution.slug}`) }
-  };
+    path: `/solutions/${solution.slug}`
+  });
 }
 
 export default async function SolutionPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,6 +30,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <JsonLd data={buildWebPageSchema({ name: solution.title, description: solution.description, path: `/solutions/${solution.slug}` })} />
+      <JsonLd data={buildServiceSchema({ name: solution.title, description: solution.description, path: `/solutions/${solution.slug}` })} />
       <section className="section">
         <div className="container">
           <Breadcrumbs items={[{ label: "Solutions" }, { label: solution.title }]} />

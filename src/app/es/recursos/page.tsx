@@ -2,23 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { spanishResourceCategories, spanishResources } from "@/content/spanish-resources";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Recursos en espanol para comprar en Yiwu y vender online",
   description:
-    "30 guias SEO en espanol sobre compras en Yiwu, proveedores en China, Mercado Libre, Shopify, control de calidad, categorias de producto y paises hispanos.",
-  alternates: { canonical: absoluteUrl("/es/recursos") }
-};
+    "Guias en revision editorial sobre compras en Yiwu, proveedores en China, control de calidad, categorias de producto y mercados hispanos.",
+  path: "/es/recursos",
+  locale: "es_ES",
+  index: false
+});
 
 export default function SpanishResourcesPage() {
   return (
     <section className="section">
       <div className="container">
-        <Breadcrumbs items={[{ label: "Espanol", href: "/es" }, { label: "Recursos" }]} />
+        <Breadcrumbs homeLabel="Inicio" items={[{ label: "Espanol", href: "/es" }, { label: "Recursos" }]} />
         <h1 className="h1 reading">Guias para vendedores online que compran en China.</h1>
         <p className="lead reading mt-5">
-          Un plan editorial de 90 dias para atraer vendedores de Mexico, Espana, Colombia, Chile, Peru y Argentina.
+          Guias organizadas por etapa de compra, plataforma, riesgo, categoria y mercado. Cada contenido permanece en
+          revision editorial hasta incorporar detalles operativos y fuentes verificables.
         </p>
         <div className="mt-8 flex flex-wrap gap-2">
           {spanishResourceCategories.map((category) => (

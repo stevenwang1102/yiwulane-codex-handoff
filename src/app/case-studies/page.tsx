@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Case Studies",
-  description: "Representative workflows and approved case-study space for YIWULANE sourcing and fulfillment projects.",
-  alternates: { canonical: absoluteUrl("/case-studies") }
-};
+const description = "Representative, clearly labeled sourcing and fulfillment workflows from YIWULANE. No fabricated client claims or performance figures.";
+
+export const metadata: Metadata = buildPageMetadata({ title: "Representative Sourcing Workflows", description, path: "/case-studies" });
 
 export default function CaseStudiesPage() {
   return (
-    <section className="section">
-      <div className="container">
+    <>
+      <JsonLd data={buildWebPageSchema({ name: "Representative Sourcing Workflows", description, path: "/case-studies" })} />
+      <section className="section">
+        <div className="container">
         <Breadcrumbs items={[{ label: "Case Studies" }]} />
         <h1 className="h1 reading">Representative workflows until verified client cases are approved.</h1>
         <p className="lead reading mt-5">YIWULANE does not publish fabricated customer logos, testimonials, or performance numbers. The initial example is clearly labeled as a representative workflow.</p>
@@ -21,7 +22,8 @@ export default function CaseStudiesPage() {
           <h2 className="mt-3 text-2xl font-black text-[var(--color-ink)]">Home organization sourcing and fulfillment workflow</h2>
           <p className="mt-3 text-[var(--color-muted)]">See how three home-organization SKUs could move from generic product references to a controlled pilot workflow.</p>
         </Link>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

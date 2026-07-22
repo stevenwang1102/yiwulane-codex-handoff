@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description = "A representative workflow showing how YIWULANE could support sourcing, QC, packaging, and fulfillment for home-organization products.";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Representative Home Organization Workflow",
-  description: "A representative workflow showing how YIWULANE could support sourcing, QC, packaging, and fulfillment for home-organization products.",
-  alternates: { canonical: absoluteUrl("/case-studies/representative-home-organization-project") }
-};
+  description,
+  path: "/case-studies/representative-home-organization-project"
+});
 
 export default function RepresentativeCasePage() {
   return (
     <>
+      <JsonLd
+        data={buildWebPageSchema({
+          name: "Representative Home Organization Workflow",
+          description,
+          path: "/case-studies/representative-home-organization-project"
+        })}
+      />
       <section className="section">
         <div className="container reading">
           <Breadcrumbs items={[{ label: "Case Studies", href: "/case-studies" }, { label: "Representative workflow" }]} />

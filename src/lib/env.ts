@@ -2,6 +2,8 @@ export type PublicEnv = {
   siteUrl: string;
   ga4Id?: string;
   clarityId?: string;
+  metaPixelId?: string;
+  tiktokPixelId?: string;
   bookingUrl?: string;
   whatsappUrl?: string;
 };
@@ -11,6 +13,8 @@ export function getPublicEnv(): PublicEnv {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.yiwulane.com",
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID || undefined,
     clarityId: process.env.NEXT_PUBLIC_CLARITY_ID || undefined,
+    metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || undefined,
+    tiktokPixelId: process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || undefined,
     bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || undefined,
     whatsappUrl: process.env.NEXT_PUBLIC_WHATSAPP_URL || undefined
   };

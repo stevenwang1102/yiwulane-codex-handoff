@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getResource, resources } from "@/content/resources";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return resources.map((resource) => ({ slug: resource.slug }));
@@ -13,11 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const resource = getResource(slug);
   if (!resource) return {};
-  return {
+  return buildPageMetadata({
     title: resource.title,
     description: resource.description,
-    alternates: { canonical: absoluteUrl(`/resources/${resource.slug}`) }
-  };
+    path: `/resources/${resource.slug}`,
+    index: false
+  });
 }
 
 export default async function ResourcePage({ params }: { params: Promise<{ slug: string }> }) {

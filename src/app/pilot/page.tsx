@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description = "Submit up to three products and receive a structured sourcing, quality, packaging, and fulfillment plan before a larger inventory commitment.";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Start a 3-SKU Sourcing & Fulfillment Pilot",
-  description: "Submit up to three products and receive a structured sourcing, quality, packaging, and fulfillment plan before a larger inventory commitment.",
-  alternates: { canonical: absoluteUrl("/pilot") }
-};
+  description,
+  path: "/pilot"
+});
 
 export default function PilotPage() {
   return (
-    <section className="section">
-      <div className="container grid gap-10 lg:grid-cols-[0.75fr_1fr] lg:items-start">
+    <>
+      <JsonLd data={buildWebPageSchema({ name: "Start a 3-SKU Pilot", description, path: "/pilot" })} />
+      <section className="section">
+        <div className="container grid gap-10 lg:grid-cols-[0.75fr_1fr] lg:items-start">
         <div>
           <Breadcrumbs items={[{ label: "Pilot" }]} />
           <h1 className="h1">Start a 3-SKU Pilot.</h1>
@@ -23,7 +28,8 @@ export default function PilotPage() {
           </div>
         </div>
         <LeadForm type="pilot" />
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

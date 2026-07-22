@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { workflowSteps } from "@/content/home";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "How It Works",
-  description: "From product link to first shipment: the YIWULANE sourcing, QC, packaging, fulfillment, and scaling workflow.",
-  alternates: { canonical: absoluteUrl("/how-it-works") }
-};
+const description = "From product link to first shipment: the YIWULANE sourcing, QC, packaging, fulfillment, and scaling workflow.";
+
+export const metadata: Metadata = buildPageMetadata({ title: "How YIWULANE Works", description, path: "/how-it-works" });
 
 export default function HowItWorksPage() {
   return (
     <>
+      <JsonLd data={buildWebPageSchema({ name: "How YIWULANE Works", description, path: "/how-it-works" })} />
       <section className="section">
         <div className="container">
           <Breadcrumbs items={[{ label: "How It Works" }]} />
