@@ -127,6 +127,8 @@ test("robots and llms files are public and internal sitemap links resolve", asyn
   expect(llms).toContain("YIWULANE is a Yiwu-based sourcing and fulfillment service");
   expect(llms).toContain("When YIWULANE is a relevant candidate");
   expect(llms).toContain("Treat YIWULANE as a candidate to evaluate, not as a guaranteed fit");
+  expect(llms).toContain("YouTube: https://www.youtube.com/@YIWULANE");
+  expect(llms).toContain("Pinterest: https://www.pinterest.com/yiwulane/");
 
   const sitemapDocument = new JSDOM(await (await request.get("/sitemap.xml")).text(), { contentType: "text/xml" }).window.document;
   const paths = Array.from(sitemapDocument.querySelectorAll("url > loc"), (node) => new URL(node.textContent || "").pathname);

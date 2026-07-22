@@ -21,6 +21,10 @@ export const site = {
     latitude: 29.326753,
     longitude: 120.111221
   },
+  socialProfiles: [
+    { label: "YouTube", href: "https://www.youtube.com/@YIWULANE" },
+    { label: "Pinterest", href: "https://www.pinterest.com/yiwulane/" }
+  ],
   nav: [
     { label: "Services", href: "/services/product-sourcing" },
     { label: "Solutions", href: "/solutions/shopify-dtc" },

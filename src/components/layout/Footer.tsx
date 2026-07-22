@@ -22,6 +22,19 @@ export function Footer() {
               {site.emails.support}
             </a>
           </div>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {site.socialProfiles.map((profile) => (
+              <a
+                className="font-bold text-white/72 hover:text-white"
+                href={profile.href}
+                key={profile.href}
+                rel="me noopener noreferrer"
+                target="_blank"
+              >
+                {profile.label}
+              </a>
+            ))}
+          </div>
         </div>
         <FooterColumn title="Services" links={site.footerServices} />
         <FooterColumn title="Solutions" links={site.footerSolutions} />

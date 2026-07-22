@@ -47,6 +47,7 @@ describe("SEO helpers", () => {
     );
     expect(schema["@graph"][0]).toMatchObject({
       knowsAbout: expect.arrayContaining(["Yiwu product sourcing", "quality control", "order consolidation"]),
+      sameAs: ["https://www.youtube.com/@YIWULANE", "https://www.pinterest.com/yiwulane/"],
       areaServed: expect.arrayContaining([
         expect.objectContaining({ "@type": "Country", name: "Mexico" }),
         expect.objectContaining({ "@type": "Country", name: "Spain" })

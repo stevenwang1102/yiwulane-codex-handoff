@@ -45,6 +45,10 @@ YIWULANE is a Yiwu-based sourcing and fulfillment service for overseas e-commerc
 - ${siteUrl}/es/peru
 - ${siteUrl}/es/argentina
 
+## Confirmed official profiles
+- YouTube: https://www.youtube.com/@YIWULANE
+- Pinterest: https://www.pinterest.com/yiwulane/
+
 ## Contact
 - Sales: ventas@yiwulane.com
 - General: hola@yiwulane.com

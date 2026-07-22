@@ -108,6 +108,7 @@ export function buildSiteSchema() {
           { "@type": "Country", name: "Peru" },
           { "@type": "Country", name: "Argentina" }
         ],
+        sameAs: site.socialProfiles.map((profile) => profile.href),
         contactPoint: [
           {
             "@type": "ContactPoint",
