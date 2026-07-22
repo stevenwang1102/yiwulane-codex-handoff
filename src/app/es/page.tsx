@@ -10,7 +10,7 @@ import { buildPageMetadata, buildWebPageSchema, spanishMarketAlternates } from "
 const description = "YIWULANE ayuda a vendedores online en Mexico, Espana, Colombia, Chile, Peru y Argentina con proveedores en Yiwu, control de calidad, packaging y fulfillment desde China.";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Sourcing en Yiwu para vendedores online en Mexico, Espana y Latinoamerica",
+  title: "Sourcing en Yiwu para vendedores online",
   description,
   path: "/es",
   locale: "es_ES",
