@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | YIWULANE"
   },
   description:
-    "Source products, control quality, create branded packaging, and fulfill e-commerce orders with a Yiwu-based team and flexible China + local inventory planning.",
+    "Source products, control quality, manage branded packaging, and coordinate repeat e-commerce orders with a Yiwu-based operating team.",
   alternates: {
     canonical: absoluteUrl("/"),
     languages: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "YIWULANE | Yiwu Sourcing, QC & E-commerce Fulfillment",
     description:
-      "Source products, control quality, create branded packaging, and fulfill e-commerce orders with a Yiwu-based team.",
+      "Source products, control quality, manage branded packaging, and coordinate repeat e-commerce orders with a Yiwu-based operating team.",
     url: absoluteUrl("/"),
     siteName: "YIWULANE",
     type: "website",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "YIWULANE | Yiwu Sourcing, QC & E-commerce Fulfillment",
     description:
-      "Source products, control quality, create branded packaging, and fulfill e-commerce orders with a Yiwu-based team.",
+      "Source products, control quality, manage branded packaging, and coordinate repeat e-commerce orders with a Yiwu-based operating team.",
     images: [absoluteUrl("/opengraph-image")]
   },
   robots: {

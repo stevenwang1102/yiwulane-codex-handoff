@@ -8,7 +8,14 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { MapCard } from "@/components/sections/MapCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { globalFaqs } from "@/content/faqs";
-import { modelSteps, qcChecks, workflowSteps } from "@/content/home";
+import {
+  audienceProfiles,
+  bestFitSignals,
+  modelSteps,
+  poorFitSignals,
+  qcChecks,
+  workflowSteps
+} from "@/content/home";
 import { trustSignals } from "@/content/site";
 import { buildWebPageSchema } from "@/lib/seo";
 
@@ -19,7 +26,7 @@ export default function Home() {
         data={buildWebPageSchema({
           name: "YIWULANE | Yiwu Sourcing, QC & E-commerce Fulfillment",
           description:
-            "Yiwu-based product sourcing, quality control, branded packaging, and fulfillment support for overseas e-commerce sellers.",
+            "Yiwu-based sourcing and order management for growing e-commerce sellers, private-label brands, and selected multi-SKU buyers.",
           path: "/"
         })}
       />
@@ -27,9 +34,9 @@ export default function Home() {
         <div className="container grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div>
             <p className="eyebrow mb-5">Yiwu sourcing · quality control · global fulfillment</p>
-            <h1 className="display">Your Yiwu sourcing and fulfillment team.</h1>
+            <h1 className="display">China sourcing and order management for growing e-commerce sellers and brands.</h1>
             <p className="lead mt-6">
-              YIWULANE helps growing Shopify, TikTok Shop, and Amazon sellers source products, control quality, build branded packaging, and fulfill orders through China and local inventory.
+              YIWULANE is your Yiwu-based operating team for supplier sourcing, quality control, branded packaging, order follow-up, consolidation, and flexible fulfillment—from a first controlled order to repeat multi-SKU purchasing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/pilot">Start a 3-SKU Pilot</ButtonLink>
@@ -45,20 +52,29 @@ export default function Home() {
 
       <section className="section bg-white">
         <div className="container">
-          <SectionHeader title="Built for growing e-commerce sellers.">
-            You have demand to serve, but not the time to coordinate factories, inspectors, warehouses, and shipping partners one by one.
+          <SectionHeader title="Built for businesses with real products and repeat purchasing needs.">
+            Our primary focus is growth-stage e-commerce sellers and brands. We also support selected importers and wholesalers when their recurring, multi-SKU needs fit the same operating model.
           </SectionHeader>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              ["Shopify & DTC Sellers", "Source better products, add real brand details, and graduate from generic dropshipping."],
-              ["TikTok Shop Sellers", "Prepare samples and small batches, then build a local-stock plan before demand spikes."],
-              ["Amazon FBA Sellers", "Source, inspect, label, bundle, and prepare products for bulk shipment to FBA or a local 3PL."]
-            ].map(([title, body]) => (
-              <article className="card p-6" key={title}>
-                <h3 className="text-xl font-black text-[var(--color-ink)]">{title}</h3>
-                <p className="mt-4 leading-7 text-[var(--color-muted)]">{body}</p>
+            {audienceProfiles.map((profile) => (
+              <article className="card p-6" key={profile.title}>
+                <p className="eyebrow">{profile.eyebrow}</p>
+                <h3 className="mt-3 text-xl font-black text-[var(--color-ink)]">{profile.title}</h3>
+                <p className="mt-4 leading-7 text-[var(--color-muted)]">{profile.body}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHeader title="A better fit starts with clear operating inputs.">
+            We can give a more useful sourcing and fulfillment response when the product direction, target quantity, budget, market, and timeline are visible from the start.
+          </SectionHeader>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <Comparison title="Best fit for YIWULANE" positive items={[...bestFitSignals]} />
+            <Comparison title="Not a fit at this stage" items={[...poorFitSignals]} />
           </div>
         </div>
       </section>
@@ -96,7 +112,7 @@ export default function Home() {
 
       <section className="section bg-white">
         <div className="container">
-          <SectionHeader centered title="One operating team from product link to customer delivery." />
+          <SectionHeader centered title="A practical sourcing and order-management workflow." />
           <div className="mt-12 grid gap-4 md:grid-cols-5">
             {modelSteps.map((step, index) => (
               <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-paper)] p-5" key={step.title}>

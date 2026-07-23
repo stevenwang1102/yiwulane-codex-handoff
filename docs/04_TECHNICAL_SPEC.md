@@ -111,6 +111,7 @@ Step 1:
 - WhatsApp;
 - country;
 - selling platform;
+- business stage;
 - store URL;
 - daily order range.
 
@@ -120,6 +121,10 @@ Step 2:
 - optional shared-file URL;
 - target selling market;
 - number of SKUs;
+- purchase type;
+- expected quantity for the first order;
+- estimated sourcing budget;
+- target timeline;
 - expected monthly volume;
 - current supplier price, optional;
 - target product price, optional;

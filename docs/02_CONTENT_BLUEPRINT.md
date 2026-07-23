@@ -58,22 +58,30 @@ Do not use a fake warehouse photo.
 
 Title:
 
-> Built for growing e-commerce sellers.
+> Built for businesses with real products and repeat purchasing needs.
 
 Intro:
 
-> You have demand to serve, but not the time to coordinate factories, inspectors, warehouses, and shipping partners one by one.
+> Whether you are validating a first controlled order or managing repeat multi-SKU purchasing, YIWULANE coordinates the suppliers, quality checks, packaging, consolidation, and delivery handoffs behind it.
 
 Cards:
 
-**Shopify & DTC Sellers**  
-Source better products, add real brand details, and graduate from generic dropshipping.
+**Growth-stage e-commerce sellers**
 
-**TikTok Shop Sellers**  
-Prepare samples and small batches, then build a local-stock plan before demand spikes.
+For sellers with proven demand who need more reliable sourcing, quality control, and repeat-order coordination.
 
-**Amazon FBA Sellers**  
-Source, inspect, label, bundle, and prepare products for bulk shipment to FBA or a local 3PL.
+**DTC and private-label brands**
+
+For brands that need packaging, product details, supplier coordination, and a controlled path from samples to repeat production.
+
+**Multi-SKU importers and wholesalers**
+
+For selective projects where supplier comparison, consolidation, and order follow-up matter more than one-off price hunting.
+
+Add a qualification section that explains:
+
+- best fit: clear products, realistic quantity and budget, repeat-purchase potential, and willingness to follow a controlled process;
+- not a fit: one-off personal purchases, lowest-price-only requests, unclear product requirements, and projects that bypass quality or compliance controls.
 
 ### 3. Pain-to-solution
 

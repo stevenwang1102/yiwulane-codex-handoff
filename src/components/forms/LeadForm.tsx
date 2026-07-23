@@ -6,6 +6,33 @@ type FormType = "pilot" | "contact" | "quote";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const platforms = ["Shopify / DTC", "TikTok Shop", "Amazon FBA", "Multiple channels", "Other"];
+const businessStages = [
+  "Live store with repeat sales",
+  "Store launched and validating products",
+  "New brand with confirmed products",
+  "Importer / wholesaler with repeat demand",
+  "Other"
+];
+const purchaseCadences = [
+  "First controlled test order",
+  "Repeat replenishment",
+  "Ongoing multi-SKU purchasing",
+  "Not sure yet"
+];
+const budgetRanges = [
+  "Under US$1,000",
+  "US$1,000–5,000",
+  "US$5,000–20,000",
+  "US$20,000+",
+  "Not sure yet"
+];
+const targetTimelines = [
+  "Within 30 days",
+  "Within 1–3 months",
+  "Within 3–6 months",
+  "More than 6 months",
+  "Not sure yet"
+];
 
 export function LeadForm({ type = "pilot" }: { type?: FormType }) {
   const [step, setStep] = useState(1);
@@ -28,7 +55,7 @@ export function LeadForm({ type = "pilot" }: { type?: FormType }) {
     const formData = new FormData(form);
 
     if (twoStep && step === 1) {
-      const required = ["firstName", "lastName", "company", "email", "country", "platform"];
+      const required = ["firstName", "lastName", "company", "email", "country", "platform", "businessStage"];
       const nextErrors = Object.fromEntries(
         required
           .filter((key) => !String(formData.get(key) || "").trim())
@@ -40,6 +67,25 @@ export function LeadForm({ type = "pilot" }: { type?: FormType }) {
       }
       setStep(2);
       return;
+    }
+
+    if (twoStep && step === 2) {
+      const required = [
+        "purchaseCadence",
+        "expectedOrderQuantity",
+        "sourcingBudget",
+        "targetTimeline",
+        "mainProblem"
+      ];
+      const nextErrors = Object.fromEntries(
+        required
+          .filter((key) => !String(formData.get(key) || "").trim())
+          .map((key) => [key, "Required for the pilot review"])
+      );
+      if (Object.keys(nextErrors).length) {
+        setErrors(nextErrors);
+        return;
+      }
     }
 
     setStatus("submitting");
@@ -56,12 +102,17 @@ export function LeadForm({ type = "pilot" }: { type?: FormType }) {
       whatsapp: String(formData.get("whatsapp") || ""),
       country: String(formData.get("country") || ""),
       platform: String(formData.get("platform") || ""),
+      businessStage: String(formData.get("businessStage") || ""),
       storeUrl: String(formData.get("storeUrl") || ""),
       dailyOrders: String(formData.get("dailyOrders") || ""),
       productUrls,
       sharedFileUrl: String(formData.get("sharedFileUrl") || ""),
       targetMarket: String(formData.get("targetMarket") || ""),
       skuCount: String(formData.get("skuCount") || ""),
+      purchaseCadence: String(formData.get("purchaseCadence") || ""),
+      expectedOrderQuantity: String(formData.get("expectedOrderQuantity") || ""),
+      sourcingBudget: String(formData.get("sourcingBudget") || ""),
+      targetTimeline: String(formData.get("targetTimeline") || ""),
       monthlyVolume: String(formData.get("monthlyVolume") || ""),
       supplierPrice: String(formData.get("supplierPrice") || ""),
       targetPrice: String(formData.get("targetPrice") || ""),
@@ -114,6 +165,13 @@ export function LeadForm({ type = "pilot" }: { type?: FormType }) {
         <Field name="whatsapp" label="WhatsApp" error={errors.whatsapp} />
         <Field name="country" label="Country" error={errors.country} required />
         <Select name="platform" label="Selling platform" options={platforms} error={errors.platform} required />
+        <Select
+          name="businessStage"
+          label="Business stage"
+          options={businessStages}
+          error={errors.businessStage}
+          required={twoStep}
+        />
         <Field name="storeUrl" label="Store URL" type="url" error={errors.storeUrl} />
         <Field name="dailyOrders" label="Daily order range" error={errors.dailyOrders} placeholder="Example: 10-50 orders/day" />
       </div>
@@ -131,6 +189,34 @@ export function LeadForm({ type = "pilot" }: { type?: FormType }) {
         <div className="grid gap-4 md:grid-cols-2">
           <Field name="targetMarket" label="Target selling market" error={errors.targetMarket} />
           <Field name="skuCount" label="Number of SKUs" error={errors.skuCount} />
+          <Select
+            name="purchaseCadence"
+            label="Purchase type"
+            options={purchaseCadences}
+            error={errors.purchaseCadence}
+            required
+          />
+          <Field
+            name="expectedOrderQuantity"
+            label="Expected quantity for the first order"
+            error={errors.expectedOrderQuantity}
+            placeholder="Example: 500 units across 3 SKUs"
+            required
+          />
+          <Select
+            name="sourcingBudget"
+            label="Estimated sourcing budget"
+            options={budgetRanges}
+            error={errors.sourcingBudget}
+            required
+          />
+          <Select
+            name="targetTimeline"
+            label="Target timeline"
+            options={targetTimelines}
+            error={errors.targetTimeline}
+            required
+          />
           <Field name="monthlyVolume" label="Expected monthly volume" error={errors.monthlyVolume} />
           <Field name="supplierPrice" label="Current supplier price (optional)" error={errors.supplierPrice} />
           <Field name="targetPrice" label="Target product price (optional)" error={errors.targetPrice} />
